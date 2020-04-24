@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+    font-family: "Kalam";
+    margin: 0;
+}
+h1 {
+    color: white;
+    font-size: 5vw;
+    margin: 10px;
+    line-height: 250px;
+}
+header {
+    width: 100%;
+    height: 250px;
+    margin-bottom: 20px;
+    background-color: #7e0505;
+    background-image: url("img/image\ 2.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+}
+.hero {
+    width: 500px;
+    margin: auto;
+}
+.inciso {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+}
+.boldy {
+    color: blueviolet;
+}
+.presentation {
+    display: flex;
+    flex-flow: column;
+    margin: 10px;
+}
+.item {
+    font-size: 2vw;
+    margin: 10px;
+}
+h2 {
+    color: rgb(23, 136, 151);
+    font-size: 4.5vw;
+}
+main {
+    border: 10px solid #cf0909;
+    border-radius: 3%;
+    box-shadow: 12px 12px 15px 5px gray;
+    width: fit-content;
+    margin: 0 auto;
+    transform: scale(0.5) translateY(-50%);
+    margin-bottom: 17px;
+}
+#grid {
+    display: grid;
+    gap: 2px;
+    border: solid 2px gray;
+    grid-template-columns: repeat(10, 8vw);
+    grid-template-rows: repeat(10, 8vw);
+    grid-auto-flow: 1fr;
+    background-color: gray;
+    text-align: center;
+    margin: 20px;
+}
+.cell {
+    line-height: 8vw;
+    font-size: 3vw;
+    background-color: white;
+    overflow: hidden;
+}
+.type2 {
+    background-color: aqua;
+}
+input {
+    text-indent: 1.8vw;
+    outline: none;
+    border: none;
+}
+.type5 {
+    background-color: yellow;
+}
+.tab {
+    position: absolute;
+    right: 0px;
+    padding: 9% 0.2%;
+
+    background-color: #7e0505;
+    border-radius: 50% 0% 0% 50%;
+}
+.tab div {
+    color: white;
+    font-size: 3vw;
+    font-weight: 600;
+    margin: auto;
+    text-align: center;
+    transform: rotate(90deg);
+}
+.error {
+    background-image: url("img/cross.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.success {
+    background-image: url("img/ok.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.win {
+    grid-column: 2/11;
+    background-color: white;
+    font-size: 4vw;
+    line-height: 8vw;
+    color: green;
+}
+
+@media only screen and (max-width: 900px) {
+    h1 {
+        font-size: 5.5vw;
+    }
+    h2 {
+        font-size: 6vw;
+    }
+    .item {
+        font-size: 5vw;
+    }
+    main {
+        transform: scale(1) translateY(0);
+    }
+    .tab {
+        display: none;
+    }
+    #grid {
+        margin: 3px;
+    }
+    .cell {
+        font-size: 4vw;
+    }
+    input {
+        text-indent: 0.9vw;
+    }
+}
+@media only screen and (max-width: 550px) {
+    .tab {
+        display: block;
+        transform: translateY(-133%);
+    }
+}
