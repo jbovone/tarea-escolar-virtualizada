@@ -1,4 +1,3 @@
-
 function setGrid() {
     for (let i = 0; i < 1001; i += 10) {
         const $cell = document.createElement('span')
@@ -24,7 +23,23 @@ function setGrid() {
 }
 const $inputsGrid = setGrid()
 
-$inputsGrid.forEach(input => input.addEventListener('change', () => {
+const evaluateInputs = setInterval(() => {
+    const $inputs = document.querySelectorAll('input')
+    let success = true
+    for (let i = 0; i < $inputs.length; i++) {
+        checkResults($inputs[i])
+        if ($inputs[i].className.match(/error/) || /^(cell type5|3)$/.test($inputs[i].classList)) {
+            success = false
+        }
+    }
+    if (success) {
+        congrats()
+    }
+}, 2000);
+function checkResults(input) {
+    if (input.value === '') {
+        return false
+    }
     if (input.id === input.value) {
         input.classList.add('success')
         input.classList.remove('error')
@@ -35,20 +50,11 @@ $inputsGrid.forEach(input => input.addEventListener('change', () => {
     if (input.value.length > 3) {
         input.value = `${input.value[0]}${input.value[1]}${input.value[2]}`
     }
-    let success = true
-    document.querySelectorAll('input').forEach(input => {
-        if (input.className.match(/error/) | /^(cell type5|3)$/.test(input.classList)) {
-            success = false
-        }
-    })
-    if (success) {
-        congrats()
-    }
-}))
-
+}
 function congrats() {
     const $success = document.createElement('div')
     $success.className = 'win'
     $success.textContent = 'Bien Estas Aprendiendo!!!'
     document.querySelector('#grid').appendChild($success)
+    window.clearInterval(evaluateInputs)
 }
